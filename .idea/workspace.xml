@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="797ce54c-2980-4bb3-bd48-a04dcaa9273d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/IControllerForM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/IControllerForV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/ArrivalProcess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/Clock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/EventList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/IEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/IEventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/Trace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/CounterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/DeliveryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/KitchenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/MyEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/ReceptionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/Results.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/ServicePoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ISimulatorUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/IVisualization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/SimulatorGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Visualization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Visualization2.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="3317KKhrS4Vg5yz0NZCwgtQNRZB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Debug",
+    "Application.SimulatorGUI.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/taifj/IdeaProjects/graafinensimulaattori6/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/taifj/IdeaProjects/graafinensimulaattori6/src/main/java/model/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taifj\IdeaProjects\graafinensimulaattori6\src\main\java" />
+      <recent name="C:\Users\taifj\IdeaProjects\graafinensimulaattori6\src\main\java\controller" />
+      <recent name="C:\Users\taifj\IdeaProjects\graafinensimulaattori6\src\main\java\simu" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\taifj\IdeaProjects\graafinensimulaattori6\src\main\java\eduni" />
+      <recent name="C:\Users\taifj\IdeaProjects\graafinensimulaattori6\src\main\java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="797ce54c-2980-4bb3-bd48-a04dcaa9273d" name="Changes" comment="" />
+      <created>1758472661717</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758472661717</updated>
+      <workItem from="1758472662667" duration="23077000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
