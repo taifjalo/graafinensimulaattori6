@@ -1,5 +1,6 @@
 package simu.model;
 
+import controller.IControllerForM;
 import controller.IControllerForV;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
@@ -8,13 +9,14 @@ import simu.framework.*;
 public class MyEngine extends Engine {
     private ArrivalProcess arrivalProcessCall;
     private ArrivalProcess arrivalProcessRestaurant;
-    private IControllerForV controller;
+    private IControllerForM controller;
+    private int totalCustomersProcessed = 0; // UUSI: Customer counter
+    private double lastProgressUpdate = 0; // UUSI: Progress tracking
 
-    public MyEngine(IControllerForV controller) {
-        super(controller);
+    public MyEngine(IControllerForM controller) {
+        super((IControllerForV) controller);
         this.controller = controller;
 
-        // 4 service points
         servicePoints = new ServicePoint[4];
 
         servicePoints[0] = new ReceptionService(
@@ -26,7 +28,6 @@ public class MyEngine extends Engine {
         servicePoints[3] = new DeliveryService(
                 new Normal(20, 8), eventList, EventType.DepartureFromDelivery);
 
-        // Customer arrivals (restaurant + call)
         arrivalProcessRestaurant = new ArrivalProcess(
                 new Negexp(8, 5), eventList, EventType.ArrivalRestaurant);
         arrivalProcessCall = new ArrivalProcess(
@@ -37,6 +38,8 @@ public class MyEngine extends Engine {
     protected void initialization() {
         arrivalProcessRestaurant.generateNext();
         arrivalProcessCall.generateNext();
+        totalCustomersProcessed = 0;
+        lastProgressUpdate = 0;
     }
 
     @Override
@@ -49,62 +52,112 @@ public class MyEngine extends Engine {
                 servicePoints[0].addQueue(new Customer(true));
                 arrivalProcessRestaurant.generateNext();
                 controller.visualiseCustomer();
+                totalCustomersProcessed++;
+                updateProgress();
                 break;
 
             case ArrivalCall:
                 servicePoints[0].addQueue(new Customer(false));
                 arrivalProcessCall.generateNext();
                 controller.visualiseCustomer();
+                totalCustomersProcessed++;
+                updateProgress();
                 break;
 
             case ReturnMoney:
-                // Final exit (refund or successful end)
                 a = servicePoints[0].removeQueue();
                 a.setRemovalTime(Clock.getInstance().getTime());
+                // UUSI: Record customer data for Results
+                recordCustomerResults(a);
                 a.reportResults();
                 break;
 
             case PaymentFailed:
-                // Retry reception
                 a = servicePoints[0].removeQueue();
                 servicePoints[0].addQueue(a);
                 a.reportPaymentIssue();
                 break;
 
             case DepartureFromReception:
-                // Reception decided → goes to kitchen
                 a = servicePoints[0].removeQueue();
                 servicePoints[1].addQueue(a);
                 break;
 
             case DepartureFromKitchen:
-                // Kitchen decided → goes to counter or refund
                 a = servicePoints[1].removeQueue();
                 servicePoints[2].addQueue(a);
                 break;
 
             case DepartureFromCounter:
-                // Counter decided → goes to delivery or exit
                 a = servicePoints[2].removeQueue();
                 servicePoints[3].addQueue(a);
                 break;
 
             case DepartureFromDelivery:
-                // Delivery decided → exit or back to kitchen
                 a = servicePoints[3].removeQueue();
                 a.setRemovalTime(Clock.getInstance().getTime());
+                // UUSI: Record customer data for Results
+                recordCustomerResults(a);
                 a.reportResults();
                 break;
         }
     }
 
+    // UUSI: Update progress periodically
+    private void updateProgress() {
+        double currentTime = Clock.getInstance().getTime();
+        if (currentTime - lastProgressUpdate >= 50) { // Update every 50 time units
+            if (controller instanceof controller.Controller) {
+                ((controller.Controller) controller).updateSimulationProgress(
+                        currentTime, getSimulationTime(), totalCustomersProcessed);
+            }
+            lastProgressUpdate = currentTime;
+        }
+    }
+
+    private double getSimulationTime() {
+        return 0;
+    }
+
+    // UUSI: Record customer results for statistics
+    private void recordCustomerResults(Customer customer) {
+        double totalTime = customer.getRemovalTime() - customer.getArrivalTime();
+        // You might need to track more detailed timing in Customer class
+        // For now, using simple calculations
+        double waitingTime = totalTime * 0.3; // Estimate
+        double serviceTime = totalTime * 0.7; // Estimate
+        double responseTime = totalTime;
+
+        Results.recordCustomer(waitingTime, serviceTime, responseTime);
+    }
+
     @Override
     protected void results() {
-        for (ServicePoint sp : servicePoints) {
-            sp.updateQueueStats();
+        // UUSI: Set total simulation time in Results
+        Results.setTotalSimulationTime(Clock.getInstance().getTime());
+
+        // Record service point utilizations
+        for (int i = 0; i < servicePoints.length; i++) {
+            servicePoints[i].updateQueueStats();
+            String[] names = {"Reception", "Kitchen", "Counter", "Delivery"};
+            // Calculate busy time (you might need to enhance ServicePoint for this)
+            double utilization = calculateUtilization(servicePoints[i]);
+            Results.addBusyTime(names[i], utilization * Clock.getInstance().getTime());
         }
-        Trace.out(Trace.Level.INFO, "Total reception served: " + servicePoints[0].getTotalCustomersServed());
-        Trace.out(Trace.Level.INFO, "Average reception queue length: " + servicePoints[0].getAverageQueueLength());
-        controller.slowDown(Clock.getInstance().getTime());
+
+        Results.printResults();
+        controller.showEndTime(Clock.getInstance().getTime());
+    }
+
+    // UUSI: Calculate utilization for service point
+    private double calculateUtilization(ServicePoint sp) {
+        // This is a simple estimation - you might want to enhance ServicePoint
+        // to track actual busy time
+        int totalServed = sp.getTotalCustomersServed();
+        double avgServiceTime = 10.0; // Average service time estimate
+        double totalTime = Clock.getInstance().getTime();
+
+        if (totalTime == 0) return 0;
+        return (totalServed * avgServiceTime) / totalTime;
     }
 }

@@ -1,0 +1,57 @@
+.root {
+    -fx-font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.button {
+    -fx-cursor: hand;
+}
+
+.text-field:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-border-color: #3498DB;
+}
+
+.progress-indicator {
+    -fx-progress-color: linear-gradient(to right, #667eea, #764ba2);
+}
+
+.progress-indicator .indicator {
+    -fx-background-color: transparent;
+}
+
+.progress-indicator .percentage {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Scrollbar styling */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animation keyframes */
+@keyframes glow {
+    0% { -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 5, 0, 0, 0); }
+    50% { -fx-effect: dropshadow(gaussian, rgba(255,255,255,1.0), 15, 0, 0, 0); }
+    100% { -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 5, 0, 0, 0); }
+}
+
+@keyframes pulse {
+    0% { -fx-scale-x: 1; -fx-scale-y: 1; }
+    50% { -fx-scale-x: 1.05; -fx-scale-y: 1.05; }
+    100% { -fx-scale-x: 1; -fx-scale-y: 1; }
+}
