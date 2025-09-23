@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="797ce54c-2980-4bb3-bd48-a04dcaa9273d" name="Changes" comment="MEVAN version with simple Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+    <list default="true" id="797ce54c-2980-4bb3-bd48-a04dcaa9273d" name="Changes" comment="MEVAN version with Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/kitchen/Cook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/kitchen/CookCompetency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/kitchen/KitchenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/model/kitchen/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/CounterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/CounterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/DeliveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/DeliveryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/EventType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/KitchenService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/MyEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/MyEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/Results.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/Results.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SimulatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SimulatorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Visualization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Visualization.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/taifj/IdeaProjects/graafinensimulaattori6/src/main/java",
@@ -103,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758472661717</updated>
-      <workItem from="1758472662667" duration="26437000" />
+      <workItem from="1758472662667" duration="38140000" />
     </task>
     <task id="LOCAL−00001" summary="MEVAN version with simple Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan.">
       <option name="closed" value="true" />
@@ -112,7 +117,14 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1758570863251</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="MEVAN version with Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan.">
+      <option name="closed" value="true" />
+      <created>1758612075450</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1758612075450</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +143,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MEVAN version with simple Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan." />
-    <option name="LAST_COMMIT_MESSAGE" value="MEVAN version with simple Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan." />
+    <MESSAGE value="MEVAN version with Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan." />
+    <option name="LAST_COMMIT_MESSAGE" value="MEVAN version with Gui, tämä versio tyhjältäpöydältä tekemällä uusi JavaFX Maven-projekti, kuten Olio-kurssin materiaalissa 6.1 kerrotaan." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

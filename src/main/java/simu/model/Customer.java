@@ -47,6 +47,10 @@ public class Customer {
         return isFaulty;
     }
 
+    public void setIsFaulty(boolean isFaulty){
+        this.isFaulty = isFaulty;
+    }
+
     public void reportPaymentIssue(){
         Trace.out(Trace.Level.ERR, "Customer " + id + " return to the Reception queue. Payment problem at" + Clock.getInstance().getTime());
     }
@@ -67,4 +71,7 @@ public class Customer {
         return id;
     }
 
+    public boolean getWalkIn() {
+        return walkIn;
+    }
 }

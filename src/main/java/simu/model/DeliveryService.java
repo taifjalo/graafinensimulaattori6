@@ -18,6 +18,13 @@ public class DeliveryService extends ServicePoint {
         Customer customer = jono.peek();
         updateQueueStats();
 
+
+
+
+
+
+
+
         double chance = Math.random();
 
         // Delivery error logic

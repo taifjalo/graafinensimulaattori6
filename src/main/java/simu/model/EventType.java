@@ -19,13 +19,15 @@ public enum EventType implements IEventType {
     KitchenError,           // Wrong order from the kitchen
 
     // Counter
-    DepartureFromCounter,   // Customer finished at the counter
-    CounterError,           // Receipt error or complaint
+    DepartureFromCounterToDelivery,   // Tilaus finished at the counter
+    DepartureFromCounterToCostumer,   // Customer finished at the counter
+    CounterErrorToKitchen,   // Receipt error or complaint
+    CounterErrorToReception, // to return money
 
     // Delivery
     DepartureFromDelivery,  // Successful delivery
     DeliveryError,          // Delivery problem
 
-    // End
+    //DepartureFromCounter, // End
     CustomerLeavesHappy     // Customer leaves happy
 }

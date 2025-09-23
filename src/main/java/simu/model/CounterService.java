@@ -13,30 +13,32 @@ public class CounterService extends ServicePoint {
 
     @Override
     public void beginService() {
+        if (!isOnQueue() || isReserved()) return;
+
         reserved = true;
         double serviceTime = generator.sample();
         Customer customer = jono.peek();
         updateQueueStats();
 
-        double chance = Math.random();
+        if (customer.getWalkIn()) {
 
-        // Counter error logic
-        if (chance < 0.05) {
-            // 5% error in counter
+            this.eventTypeScheduled = EventType.DepartureFromCounterToDelivery; // order for delivery
+            // this.eventTypeScheduled = EventType.CounterErrorToReception;   // Customer complains about wrong order → back to reception
+        }
+        else if (customer.getIsFaulty() == true) {
+            // 5% chance → counter makes an error
             if (Math.random() < 0.5) {
-                this.eventTypeScheduled = EventType.DepartureFromKitchen; // send back to kitchen
+                this.eventTypeScheduled = EventType.CounterErrorToKitchen;   // resend to kitchen
             } else {
-                this.eventTypeScheduled = EventType.DepartureFromReception; // send back to reception
-            }
-        } else {
-            // Either customer leaves happy or goes to delivery
-            if (Math.random() < 0.5) {
-                this.eventTypeScheduled = EventType.ReturnMoney; // use ReturnMoney as "finished happy"
-            } else {
-                this.eventTypeScheduled = EventType.DepartureFromCounter; // goes to delivery
+                this.eventTypeScheduled = EventType.CounterErrorToReception; // refund at reception
             }
         }
+        else {
+            this.eventTypeScheduled = EventType.DepartureFromCounterToCostumer; // customer finished
 
+        }
+
+        // Schedule event
         eventList.add(new Event(this.eventTypeScheduled,
                 Clock.getInstance().getTime() + serviceTime));
     }

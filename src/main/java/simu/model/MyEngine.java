@@ -5,6 +5,8 @@ import controller.IControllerForV;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
 import simu.framework.*;
+import simu.model.kitchen.KitchenService;
+
 
 public class MyEngine extends Engine {
     private ArrivalProcess arrivalProcessCall;
@@ -22,9 +24,9 @@ public class MyEngine extends Engine {
         servicePoints[0] = new ReceptionService(
                 new Normal(4, 1.5), eventList, EventType.DepartureFromReception);
         servicePoints[1] = new KitchenService(
-                new Normal(15, 5), eventList, EventType.DepartureFromKitchen);
+                new Normal(18, 5), eventList, EventType.DepartureFromKitchen, 3);
         servicePoints[2] = new CounterService(
-                new Normal(5, 2), eventList, EventType.DepartureFromCounter);
+                new Normal(5, 2), eventList, EventType.DepartureFromCounterToCostumer);
         servicePoints[3] = new DeliveryService(
                 new Normal(20, 8), eventList, EventType.DepartureFromDelivery);
 
@@ -78,6 +80,7 @@ public class MyEngine extends Engine {
                 a.reportPaymentIssue();
                 break;
 
+
             case DepartureFromReception:
                 a = servicePoints[0].removeQueue();
                 servicePoints[1].addQueue(a);
@@ -88,10 +91,30 @@ public class MyEngine extends Engine {
                 servicePoints[2].addQueue(a);
                 break;
 
-            case DepartureFromCounter:
+            // Counter
+            case DepartureFromCounterToDelivery:
                 a = servicePoints[2].removeQueue();
                 servicePoints[3].addQueue(a);
                 break;
+
+            case DepartureFromCounterToCostumer:
+                a = servicePoints[2].removeQueue();
+                a.setRemovalTime(Clock.getInstance().getTime());
+                // UUSI: Record customer data for Results
+                recordCustomerResults(a);
+                a.reportResults();
+                break;
+
+            case CounterErrorToKitchen:
+                a = servicePoints[2].removeQueue();
+                servicePoints[1].addQueue(a);
+                break;
+
+            case CounterErrorToReception:
+                a = servicePoints[2].removeQueue();
+                servicePoints[0].addQueue(a);
+                break;
+
 
             case DepartureFromDelivery:
                 a = servicePoints[3].removeQueue();
