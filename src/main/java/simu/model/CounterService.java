@@ -22,7 +22,7 @@ public class CounterService extends ServicePoint {
 
         if (customer.getWalkIn()) {
 
-            this.eventTypeScheduled = EventType.DepartureFromCounterToDelivery; // order for delivery
+            this.eventTypeScheduled = EventType.DepartureFromCounterToDelivery; // For "walkIn = false" which means the order by costumer call will go directly to for delivery
             // this.eventTypeScheduled = EventType.CounterErrorToReception;   // Customer complains about wrong order → back to reception
         }
         else if (customer.getIsFaulty() == true) {
@@ -30,11 +30,11 @@ public class CounterService extends ServicePoint {
             if (Math.random() < 0.5) {
                 this.eventTypeScheduled = EventType.CounterErrorToKitchen;   // resend to kitchen
             } else {
-                this.eventTypeScheduled = EventType.CounterErrorToReception; // refund at reception
+                this.eventTypeScheduled = EventType.CounterErrorToReception; // Customer complains about wrong order → back to refund at reception
             }
         }
         else {
-            this.eventTypeScheduled = EventType.DepartureFromCounterToCostumer; // customer finished
+            this.eventTypeScheduled = EventType.DepartureFromCounterToCostumer; // Customer get order from counter and finished.
 
         }
 

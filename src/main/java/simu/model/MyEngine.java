@@ -24,7 +24,7 @@ public class MyEngine extends Engine {
         servicePoints[0] = new ReceptionService(
                 new Normal(4, 1.5), eventList, EventType.DepartureFromReception);
         servicePoints[1] = new KitchenService(
-                new Normal(18, 5), eventList, EventType.DepartureFromKitchen, 3);
+                new Normal(18, 5), eventList, EventType.DepartureFromKitchen);
         servicePoints[2] = new CounterService(
                 new Normal(5, 2), eventList, EventType.DepartureFromCounterToCostumer);
         servicePoints[3] = new DeliveryService(
